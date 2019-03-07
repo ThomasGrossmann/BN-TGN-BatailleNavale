@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Thomas.GROSSMANN/Documents/GitHub/Bataille-Navale
+# Install script for directory: C:/Users/Thomas.GROSSMANN/Documents/GitHub/Bataille-Navale/BatailleNavale
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Thomas.GROSSMANN/Documents/GitHub/Bataille-Navale/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Thomas.GROSSMANN/Documents/GitHub/Bataille-Navale/BatailleNavale/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

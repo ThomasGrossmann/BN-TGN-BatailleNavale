@@ -1,6 +1,16 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hello, World!\n");
+    int Choix;
+
+    printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
+    printf("\n\nVeuillez choisir une option :");
+    printf("\n1.Jouer\n2.Aide\n9.Quitter");
+    scanf("%d", &Choix);
+
+    switch(Choix){
+        
+    }
+
     return 0;
 }
