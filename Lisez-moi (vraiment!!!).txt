@@ -1,0 +1,4 @@
+Ce fichier ne me sert qu’à vérifier que les droits d’écriture sur votre repository m’ont bien été accordés.
+Vous pouvez (devez) l’effacer maintenant.
+
+Xavier Carrel
