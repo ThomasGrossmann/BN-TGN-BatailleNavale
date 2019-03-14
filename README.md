@@ -1,18 +1,24 @@
-# Bataille-Navale
+# Bataille Navale
 
-## 7.1	Généralités
-Ce module MA-20 a pour objectifs d'entraîner les étudiants à la réalisation de projet de type développement.
-## 7.2	Fonctionnalités minimales
-Le type d’application C demandé doit offrir les fonctionnalités minimales suivantes :  
-Version 0.1 (pour le 2 mars 2018) :
-*	Jouer à la bataille navale alors que la position des bateaux est codée dans le programme
-*	Afficher l’aide du jeu  
-Version 1.0 (pour le 20 avril 2018)
-*	S’authentifier en tant que joueur
-*	Logger les faits importants durant toute la durée de fonctionnement de l’application
-*	Le programme choisit une grille au hasard dans un répertoire et la charge 
-*	Afficher la liste des scores atteints lors des parties précédentes  
-Notes :    
-*	Des fichiers seront utilisés pour la persistance des données.
-*	Un menu de type console sera utilisé pour accéder aux différentes fonctionnalités.
-*	Une extension pourra être envisagée pour ceux qui auraient terminé toutes les fonctionnalités avant la fin du temps imparti. Elle sera à discuter entre l’élève et le mandant du projet.
+## Description
+Ce projet a pour but de créer en language C le jeu de la bataille navale. L'utilisateur effectuera une partie de Bataille Navale contre l'ordinateur.
+
+## Génération
+Pour tester le programme vous aurez besoin de:
+
+- Aller dans le repository
+- Télécharger le repository sur votre ordinateur
+
+L'exécutable est déjà généré mais pour y accéder, vous devez:
+
+1. Aller dans le dossier "BatailleNavale" du repository
+1. Aller dans le dossier "cmake-build-debug"
+1. Vous aurez donc le fichier exécutable "Bataille_Navale"
+1. Il vous suffit juste de copier l'exécutable
+
+## Exécution
+
+Pour exécuter le programme, vous devez:
+
+1. Coller le programme exécutable préalablement copié sur votre ordinateur
+1. Double-cliquez dessus
