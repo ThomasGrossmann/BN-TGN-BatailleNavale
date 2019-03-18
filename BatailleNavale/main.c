@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define SIZE 3
+#define SIZE 6
 #define STLC 218 // ┌, Single Top Left Corner
 #define STRC 191 // ┐, Single Top Right Corner
 #define SBLC 192 // └, Single Bottom Left Corner
@@ -64,7 +64,7 @@ void bottombars(int width)
 int grille(void)
 {
     SetConsoleOutputCP(65001); // For accented characters
-    printf("Une grille basée sur les lignes simples:\n");
+    printf("Voici la grille que vous avez choisi:\n");
     SetConsoleOutputCP(437); // For semi-graphic characters
     topborder(SIZE);
     for (int row = 0; row < SIZE; row++)
@@ -91,10 +91,7 @@ int main(void) {
 
     switch (Choix) {
         case 1 :
-            printf("Choisissez la grille predefinie (d'autres grilles viendront avec le temps");
-                if (grille = 1){
-                    grille(void);
-                }
+            grille();
             break;
         case 2 :
             printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
