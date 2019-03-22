@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define SIZE 6
+#define SIZE 8
 #define STLC 218 // ┌, Single Top Left Corner
 #define STRC 191 // ┐, Single Top Right Corner
 #define SBLC 192 // └, Single Bottom Left Corner
@@ -29,6 +29,11 @@
 #define DC   206 // ╬, Double Center
 void topborder(int width)
 {
+    for(int i = 65; i < 74; i++)
+    {
+        printf("     %c", i);
+    }
+    printf("\n");
     printf("   %c",STLC);      //Coin haut gauche
     for (int row = 1; row < SIZE; row++)
     {
@@ -91,10 +96,6 @@ int main(void) {
 
     switch (Choix) {
         case 1 :
-            for(int i=0; i < SIZE; i++)
-            {
-                
-            }
             grille();
             break;
         case 2 :
