@@ -38,7 +38,7 @@ void topborder(int width)
 }
 void verticalbars(int width, int row)
 {
-    printf(" %d ", row+1);    //Numéros de ligne
+    printf(" %d ", row+1);    //Numéro de ligne
     for (int ligne = 1; ligne < SIZE+2; ligne++)
     {
         printf("%c   ",SVSB);
@@ -91,6 +91,10 @@ int main(void) {
 
     switch (Choix) {
         case 1 :
+            for(int i=0; i < SIZE; i++)
+            {
+                
+            }
             grille();
             break;
         case 2 :
