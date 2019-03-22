@@ -29,24 +29,25 @@
 #define DC   206 // ╬, Double Center
 void topborder(int width)
 {
-    printf("%c",STLC);      //Premier coin gauche
-    for (int row = 0; row < SIZE; row++)
+    printf("   %c",STLC);      //Coin haut gauche
+    for (int row = 1; row < SIZE; row++)
     {
         printf("%c%c%c%c",SHSB,SHSB,SHSB,SHTB);
     }
-    printf("%c%c%c%c\n",SHSB,SHSB,SHSB,STRC);
+    printf("%c%c%c%c\n",SHSB,SHSB,SHSB,STRC); //Coin haut droite
 }
-void verticalbars(int width)
+void verticalbars(int width, int row)
 {
-    for (int row = 0; row < SIZE+2; row++)
+    printf(" %d ", row+1);    //Numéros de ligne
+    for (int ligne = 1; ligne < SIZE+2; ligne++)
     {
         printf("%c   ",SVSB);
     }
 }
 void horizonbars(int width)
 {
-    printf("\n%c",SVLB);
-    for (int row = 0; row < SIZE; row++)
+    printf("\n   %c",SVLB);
+    for (int row = 1; row < SIZE; row++)
     {
         printf("%c%c%c%c",SHSB,SHSB,SHSB,SC);
     }
@@ -54,8 +55,8 @@ void horizonbars(int width)
 }
 void bottombars(int width)
 {
-    printf("\n%c",SBLC);
-    for (int row = 0; row < SIZE; row++)
+    printf("\n   %c",SBLC);
+    for (int row = 1; row < SIZE; row++)
     {
         printf("%c%c%c%c",SHSB,SHSB,SHSB,SHBB);
     }
@@ -64,7 +65,6 @@ void bottombars(int width)
 int grille(void)
 {
     SetConsoleOutputCP(65001); // For accented characters
-    printf("Voici la grille que vous avez choisi:\n");
     SetConsoleOutputCP(437); // For semi-graphic characters
     topborder(SIZE);
     for (int row = 0; row < SIZE; row++)
@@ -73,7 +73,7 @@ int grille(void)
         {
             horizonbars(SIZE);
         }
-        verticalbars(SIZE);
+        verticalbars(SIZE, row);
     }
     bottombars(SIZE);
 }
