@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define SIZE 8
+#define SIZE 12
 #define STLC 218 // ┌, Single Top Left Corner
 #define STRC 191 // ┐, Single Top Right Corner
 #define SBLC 192 // └, Single Bottom Left Corner
@@ -16,26 +16,28 @@
 #define SHBB 193 // ┴, Single Horizontal Bottom Border
 #define SHTB 194 // ┬, Single Horizontal Top Border
 #define SC   197 // ┼, Single Center
-#define DTLC 201 // ╔, Double Top Left Corner
-#define DTRC 187 // ╗, Double Top Right Corner
-#define DBLC 200 // ╚, Double Bottom Left Corner
-#define DBRC 188 // ╝, Double Bottom Right Corner
-#define DVSB 186 // ║, Double Vertical Simple Border
-#define DVRB 185 // ╣, Double Vertical Right Border
-#define DVLB 204 // ╠, Double Vertical Left Border
-#define DHSB 205 // ═, Double Horizontal Simple Border
-#define DHBB 202 // ╩, Double Horizontal Bottom Border
-#define DHTB 203 // ╦, Double Horizontal Top Border
-#define DC   206 // ╬, Double Center
+
+int model[SIZE][SIZE]={
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 1, 1, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0,
+};
+
 void topborder(int width)
 {
-    for(int i = 65; i < 74; i++)
+    printf("     ");
+    for(int i = 0; i < width; i++)
     {
-        printf("     %c", i);
+        printf("%c   ", 'A' + i);
     }
     printf("\n");
     printf("   %c",STLC);      //Coin haut gauche
-    for (int row = 1; row < SIZE; row++)
+    for (int row = 1; row < width; row++)
     {
         printf("%c%c%c%c",SHSB,SHSB,SHSB,SHTB);
     }
@@ -43,8 +45,9 @@ void topborder(int width)
 }
 void verticalbars(int width, int row)
 {
-    printf(" %d ", row+1);    //Numéro de ligne
-    for (int ligne = 1; ligne < SIZE+2; ligne++)
+    printf("%2d ", row+1);    //Numéro de ligne
+
+    for (int ligne = -1; ligne < width; ligne++)
     {
         printf("%c   ",SVSB);
     }
@@ -52,7 +55,7 @@ void verticalbars(int width, int row)
 void horizonbars(int width)
 {
     printf("\n   %c",SVLB);
-    for (int row = 1; row < SIZE; row++)
+    for (int row = 1; row < width; row++)
     {
         printf("%c%c%c%c",SHSB,SHSB,SHSB,SC);
     }
@@ -61,7 +64,7 @@ void horizonbars(int width)
 void bottombars(int width)
 {
     printf("\n   %c",SBLC);
-    for (int row = 1; row < SIZE; row++)
+    for (int row = 1; row < width; row++)
     {
         printf("%c%c%c%c",SHSB,SHSB,SHSB,SHBB);
     }
@@ -89,7 +92,7 @@ int main(void) {
 
     printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
     printf("\n\nVeuillez choisir une option :");
-    printf("\n1.Jouer\n2.Aide\n9.Quitter");
+    printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");
     scanf("%d", &Choix);
 
     //POUR LE MOMENT SEUL L'AFFICHAGE DE L'AIDE EST DISPONIBLE !!
