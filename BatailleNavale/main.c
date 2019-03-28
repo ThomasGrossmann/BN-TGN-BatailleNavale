@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define SIZE 10
+#define SIZE 4
 #define STLC 218 // ┌, Single Top Left Corner
 #define STRC 191 // ┐, Single Top Right Corner
 #define SBLC 192 // └, Single Bottom Left Corner
@@ -19,16 +19,11 @@
 #define SC   197 // ┼, Single Center
 
 int model[SIZE][SIZE] = {
-        {1, 1, 1, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0},
+        {0, 2, 0, 3},
+        {0, 2, 0, 3},
+        {0, 0, 0, 3},
+
 };
 
 void topborder(int width) {
@@ -45,9 +40,20 @@ void topborder(int width) {
 }
 
 void verticalbars(int width, int row) {
+    char TabCase = 'x';
     printf("%2d ", row + 1);    // Numéro de ligne
     for (int colonne = 0; colonne < width; colonne++) {
-        printf("%c %c ", SVSB, '0' + model[row][colonne]);     // │ + Modèle
+        TabCase = ' ';
+        if(model[row][colonne] < 0){    // À l'eau
+            TabCase = '.';
+        }
+        if(model[row][colonne] > 10){   // Touché
+            TabCase = 'X';
+        }
+        if(model[row][colonne] > 20){   // Coulé
+            TabCase = '/';
+        }
+        printf("%c %c ", SVSB, TabCase);     // │ + Modèle
     }
     printf("%c", SVSB);
 }
@@ -84,7 +90,6 @@ int grille(void) {
 
 int main(void) {
     int Choix;
-
     printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
     printf("\n\nVeuillez choisir une option :");
     printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");
@@ -93,7 +98,13 @@ int main(void) {
 
     switch (Choix) {
         case 1 :
+            printf("\n\nLa seule grille disponible est la grille predefinie par le code.\n\n\n");
+            char tir[5];
             grille();
+            printf("       Tirez :");
+            scanf("%s", &tir);
+            int col = tir[0] - 49;
+            int ligne = tir[1] - 65;
             break;
         case 2 :
             printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
@@ -103,7 +114,6 @@ int main(void) {
             printf("\nExemple : vous choississez de tirer sur la case B5, vous entrerez donc : B5");
             printf("\nUne fois que vous aurez tirer 2 a 3 cas s'offrent a vous. Soit votre tir en tombe a l'eau soit il a touche sa cible.");
             printf("\nSi vous avez rater votre tir le message, A l'eau s'affiche. Dans le cas contraire Toucher ! s'affiche");
-            break;
         default :
             break;
     }
