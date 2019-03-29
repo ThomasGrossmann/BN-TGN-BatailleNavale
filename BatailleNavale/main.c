@@ -20,9 +20,9 @@
 
 int model[SIZE][SIZE] = {
         {0, 0, 0, 0},
-        {0, 2, 0, 3},
-        {0, 2, 0, 3},
-        {0, 0, 0, 3},
+        {0, 22, 0, 3},
+        {-1, 22, 0, 3},
+        {0, 0, 0, 13},
 
 };
 
@@ -45,9 +45,9 @@ void verticalbars(int width, int row) {
     for (int colonne = 0; colonne < width; colonne++) {
         TabCase = ' ';
         if(model[row][colonne] < 0){    // À l'eau
-            TabCase = '.';
+            TabCase = '~';
         }
-        if(model[row][colonne] > 10){   // Touché
+        if(model[row][colonne] >= 10){   // Touché
             TabCase = 'X';
         }
         if(model[row][colonne] > 20){   // Coulé
@@ -87,9 +87,9 @@ int grille(void) {
     bottombars(SIZE);       // Ligne du bas
 }
 
-
 int main(void) {
     int Choix;
+
     printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
     printf("\n\nVeuillez choisir une option :");
     printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");
@@ -102,9 +102,20 @@ int main(void) {
             char tir[5];
             grille();
             printf("       Tirez :");
-            scanf("%s", &tir);
-            int col = tir[0] - 49;
-            int ligne = tir[1] - 65;
+            scanf("%s", tir);
+            int col = tir[0] - 65;
+            int ligne = tir[1] - 49;
+            printf("\nVous avez tirer en %d %d\n", col, ligne);
+            if(model[ligne][col] == 0){
+                model[ligne][col] = model[ligne][col] - 1;
+                grille();
+            }else if(model[ligne][col] < 20){
+                model[ligne][col] = model[ligne][col] + 10;
+                grille();
+            }else if(model[ligne][col] > 20){
+                model[ligne][col] = model[ligne][col] + 10;
+                grille();
+            }
             break;
         case 2 :
             printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
