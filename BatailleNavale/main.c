@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define SIZE 4
+#define SIZE 6
 #define STLC 218 // ┌, Single Top Left Corner
 #define STRC 191 // ┐, Single Top Right Corner
 #define SBLC 192 // └, Single Bottom Left Corner
@@ -106,16 +106,19 @@ int main(void) {
             int col = tir[0] - 65;
             int ligne = tir[1] - 49;
             printf("\nVous avez tirer en %d %d\n", col, ligne);
-            if(model[ligne][col] == 0){
-                model[ligne][col] = model[ligne][col] - 1;
-                grille();
-            }else if(model[ligne][col] < 20){
-                model[ligne][col] = model[ligne][col] + 10;
-                grille();
-            }else if(model[ligne][col] > 20){
-                model[ligne][col] = model[ligne][col] + 10;
-                grille();
-            }
+            if (model[ligne][col] != 0){
+                printf("Vous avez deja choisi cette case\n");
+                    grille();
+                }else if(model[ligne][col] == 0){
+                    model[ligne][col] = model[ligne][col] - 1;
+                    grille();
+                }else if(model[ligne][col] < 20){
+                    model[ligne][col] = model[ligne][col] + 10;
+                    grille();
+                }else if(model[ligne][col] > 20){
+                    model[ligne][col] = model[ligne][col] + 10;
+                    grille();
+                }
             break;
         case 2 :
             printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
