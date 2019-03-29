@@ -21,7 +21,7 @@
 int model[SIZE][SIZE] = {
         {0, 0, 0, 0},
         {0, 22, 0, 3},
-        {-1, 22, 0, 3},
+        {-1, 22, 0, 13},
         {0, 0, 0, 13},
 
 };
@@ -106,7 +106,7 @@ int main(void) {
             int col = tir[0] - 65;
             int ligne = tir[1] - 49;
             printf("\nVous avez tirer en %d %d\n", col, ligne);
-            if (model[ligne][col] != 0){
+            if ((model[ligne][col] != 0)&&(model[ligne][col] > 10)){
                 printf("Vous avez deja choisi cette case\n");
                     grille();
                 }else if(model[ligne][col] == 0){
