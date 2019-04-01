@@ -23,7 +23,6 @@ int model[SIZE][SIZE] = {
         {0, 22, 0, 3},
         {-1, 22, 0, 13},
         {0, 0, 0, 13},
-
 };
 
 void topborder(int width) {
@@ -92,42 +91,50 @@ int main(void) {
 
     printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
     printf("\n\nVeuillez choisir une option :");
-    printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");
+    printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");         // Menu principal
     scanf("%d", &Choix);
 
 
     switch (Choix) {
         case 1 :
             printf("\n\nLa seule grille disponible est la grille predefinie par le code.\n\n\n");
-            char tir[5];
-            grille();
-            printf("       Tirez :");
-            scanf("%s", tir);
-            int col = tir[0] - 65;
-            int ligne = tir[1] - 49;
-            printf("\nVous avez tirer en %d %d\n", col, ligne);
-            if ((model[ligne][col] != 0)&&(model[ligne][col] > 10)){
-                printf("Vous avez deja choisi cette case\n");
+            char tir[5];        // Variable de tir
+            int game =1;
+            while(game) {
+                grille();
+                printf("       Tirez :");
+                scanf("%s", tir);
+                int col = tir[0] - 65;          // Variable pour définir la colonne de la grille
+                int ligne = tir[1] - 49;        // Variable pour définir la ligne de la grille
+                printf("\nVous avez tirer en %d %d\n", col, ligne);
+                if ((model[ligne][col] == -1) || (model[ligne][col] > 10)) {
+                    printf("Vous avez deja tirer dans cette case\n");
                     grille();
-                }else if(model[ligne][col] == 0){
+                } else if (model[ligne][col] == 0) {
                     model[ligne][col] = model[ligne][col] - 1;
                     grille();
-                }else if(model[ligne][col] < 20){
+                    printf("\nA l'eau !\n");
+                } else if (model[ligne][col] < 20) {
                     model[ligne][col] = model[ligne][col] + 10;
                     grille();
-                }else if(model[ligne][col] > 20){
+                    printf("\nToucher !\n");
+                } else if (model[ligne][col] > 20) {
                     model[ligne][col] = model[ligne][col] + 10;
                     grille();
+                    printf("\nCouler !\n");
                 }
-            break;
+            }
+                break;
         case 2 :
             printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
             printf("\nVous devez les placer sur une grille de maniere strategique afin que votre adversaire ne puisse pas couler vos bateaux.");
             printf("\nUne fois vos bateaux places, la partie peut commencer.");
             printf("\nVous devrez choisir un endroit ou tirer en choisissant une case.");
             printf("\nExemple : vous choississez de tirer sur la case B5, vous entrerez donc : B5");
-            printf("\nUne fois que vous aurez tirer 2 a 3 cas s'offrent a vous. Soit votre tir en tombe a l'eau soit il a touche sa cible.");
-            printf("\nSi vous avez rater votre tir le message, A l'eau s'affiche. Dans le cas contraire Toucher ! s'affiche");
+            printf("\nUne fois que vous aurez tirer 2 a 3 cas s'offrent a vous. Soit votre tir est tomber a l'eau soit il a toucher sa cible.");
+            printf("\nSi vous avez rater votre tir le message, 'A l'eau' s'affiche. Dans le cas contraire 'Toucher' ! s'affiche.");
+            printf("\nDes que vous aurez toucher toutes les parties d'un bateau, 'Couler !' s'affiche.");
+            break;
         default :
             break;
     }
