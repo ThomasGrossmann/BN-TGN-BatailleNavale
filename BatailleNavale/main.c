@@ -20,10 +20,27 @@
 
 int model[SIZE][SIZE] = {
         {0, 0, 0, 0},
-        {0, 22, 0, 3},
-        {-1, 22, 0, 13},
-        {0, 0, 0, 13},
+        {0, 2, 0, 3},
+        {0, 2, 0, 3},
+        {0, 0, 0, 3},
 };
+
+int Coule[5];
+char tir[5];        // Variable de tir
+
+void coule(int x, int y) {
+    for (int i = 1; i <= 4; i++){
+        if(Coule[i] == i){
+            for (int s = 0; s < 9; s++) {
+                for (int u = 0; u < 9; u++) {
+                    if(model[x][y] == 10 + i){
+                        model[x][y] += 10;
+                    }
+                }
+            }
+        }
+    }
+}
 
 void topborder(int width) {
     printf("     ");
@@ -43,6 +60,7 @@ void verticalbars(int width, int row) {
     printf("%2d ", row + 1);    // Numéro de ligne
     for (int colonne = 0; colonne < width; colonne++) {
         TabCase = ' ';
+        coule(row, colonne);
         if(model[row][colonne] < 0){    // À l'eau
             TabCase = '~';
         }
@@ -71,6 +89,7 @@ void bottombars(int width) {
         printf("%c%c%c%c", SHSB, SHSB, SHSB, SHBB);     // ┴
     }
     printf("%c%c%c%c", SHSB, SHSB, SHSB, SBRC);     // ┘
+    printf("\n");
 }
 
 int grille(void) {
@@ -85,7 +104,38 @@ int grille(void) {
     }
     bottombars(SIZE);       // Ligne du bas
 }
+ void Partie(){
+    int gameover = 0;
+    do {
+        grille();
+        printf("       Tirez :");
+        scanf("%s", tir);
+        int col = tir[0] - 65;          // Variable pour définir la colonne de la grille
+        int ligne = tir[1] - 49;        // Variable pour définir la ligne de la grille
+        printf("\nVous avez tirer en %d %d\n", col, ligne);
+        if (model[ligne][col] == 0){
+            model[ligne][col] = -1;
+            printf("\nA l'eau !\n");
+        }else if(model[ligne][col] > 0 && model[ligne][col] < 10){
+            Coule[model[ligne][col]] += 1;
+            model[ligne][col] += 10;
+            printf("\nToucher !\n");
+        }else if(model[ligne][col] > 10 || model[ligne][col] == -1){
+            printf("\nVous avez deja tirer dans cette case !\n");
+        }
+        gameover = 1;
 
+        for (int i = 1; i <= 4; i++){
+            if(Coule[i] != i){
+                gameover = 0;
+            }
+        }
+        if(gameover == 1){
+            printf("\n\nBRAVO VOUS AVEZ GAGNER !");
+            system("pause");
+        }
+    }while(gameover == 0);
+}
 int main(void) {
     int Choix;
 
@@ -97,34 +147,8 @@ int main(void) {
 
     switch (Choix) {
         case 1 :
-            printf("\n\nLa seule grille disponible est la grille predefinie par le code.\n\n\n");
-            char tir[5];        // Variable de tir
-            int game =1;
-            while(game) {
-                grille();
-                printf("       Tirez :");
-                scanf("%s", tir);
-                int col = tir[0] - 65;          // Variable pour définir la colonne de la grille
-                int ligne = tir[1] - 49;        // Variable pour définir la ligne de la grille
-                printf("\nVous avez tirer en %d %d\n", col, ligne);
-                if ((model[ligne][col] == -1) || (model[ligne][col] > 10)) {
-                    printf("Vous avez deja tirer dans cette case\n");
-                    grille();
-                } else if (model[ligne][col] == 0) {
-                    model[ligne][col] = model[ligne][col] - 1;
-                    grille();
-                    printf("\nA l'eau !\n");
-                } else if (model[ligne][col] < 20) {
-                    model[ligne][col] = model[ligne][col] + 10;
-                    grille();
-                    printf("\nToucher !\n");
-                } else if (model[ligne][col] > 20) {
-                    model[ligne][col] = model[ligne][col] + 10;
-                    grille();
-                    printf("\nCouler !\n");
-                }
-            }
-                break;
+            Partie();
+            break;
         case 2 :
             printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
             printf("\nVous devez les placer sur une grille de maniere strategique afin que votre adversaire ne puisse pas couler vos bateaux.");
