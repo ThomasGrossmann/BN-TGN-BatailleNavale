@@ -131,7 +131,7 @@ int grille(void) {
             }
         }
         if(gameover == 1){
-            printf("\n\nBRAVO VOUS AVEZ GAGNER !");
+            printf("\n\n56 69 63 74 6F 69 72 65  21 ");
             system("pause");
         }
     }while(gameover == 0);
