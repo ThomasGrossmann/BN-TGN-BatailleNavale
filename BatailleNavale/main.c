@@ -109,8 +109,23 @@ int grille(void) {
     bottombars(SIZE);       // Ligne du bas
 }
 
-void Partie() {
-    int gameover = 0;
+int gameover(){
+    int val;
+    for (int x = 0; x < SIZE; x++) {
+        for (int y = 0; y < SIZE; y++) {
+            val = model[x][y];
+            if(val > 1 && val < 9){
+                return (0);
+            }
+        }
+
+    }
+    printf("Victoire!!!!\n\n");
+    return (1);
+}
+
+int Partie() {
+    int Gameover = 0;
     do {
         grille();
         printf("       Tirez :");
@@ -128,17 +143,14 @@ void Partie() {
         } else if (model[ligne][col] > 10 || model[ligne][col] == -1) {
             printf("\nVous avez deja tirer dans cette case !\n");
         }
-        gameover = 1;
+        Gameover = 1;
         for (int i = 1; i <= 4; i++) {
             if (Coule[i] != i) {
-                gameover = 0;
+                Gameover = 0;
             }
         }
-        if (gameover == 1) {
-            printf("\n\nVOUS AVEZ GAGNER BRAVO !");
-            system("pause");
-        }
-    } while (gameover == 0);
+    } while (Gameover == 0);
+    return 0;
 }
 
 int main(void) {
@@ -165,6 +177,9 @@ int main(void) {
             break;
         case 9 :
             return 0;
+        default:
+            printf("\nChoisissez un chiffre correct !\n");
+            break;
         }
     }
 }
