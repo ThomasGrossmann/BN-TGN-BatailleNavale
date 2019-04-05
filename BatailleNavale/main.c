@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define SIZE 6
+#define SIZE 8
 #define STLC 218 // ┌, Single Top Left Corner
 #define STRC 191 // ┐, Single Top Right Corner
 #define SBLC 192 // └, Single Bottom Left Corner
@@ -19,10 +19,14 @@
 #define SC   197 // ┼, Single Center
 
 int model[SIZE][SIZE] = {
-        {0, 0, 0, 0},
-        {0, 2, 0, 3},
-        {0, 2, 0, 3},
-        {0, 0, 0, 3},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 2, 0, 3, 0, 0, 0, 0},
+        {0, 2, 0, 3, 0, 0, 0, 0},
+        {0, 0, 0, 3, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 4, 4, 4, 4, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
 };
 
 int Coule[5];
@@ -137,18 +141,10 @@ void Partie() {
     } while (gameover == 0);
 }
 
-int Aide() {
-    printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
-    printf("\nVous devrez choisir un endroit ou tirer en choisissant une case.");
-    printf("\nExemple : vous choississez de tirer sur la case B5, vous entrerez donc : B5");
-    printf("\nUne fois que vous aurez tirer 2 a 3 cas s'offrent a vous. Soit votre tir est tomber a l'eau soit il a toucher sa cible.");
-    printf("\nSi vous avez rater votre tir le message, 'A l'eau' s'affiche. Dans le cas contraire 'Toucher' ! s'affiche.");
-    printf("\nDes que vous aurez toucher toutes les parties d'un bateau, 'Couler !' s'affiche.");
-}
-
 int main(void) {
     int Choix;
 
+    while(1){
     printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
     printf("\n\nVeuillez choisir une option :\n");
     printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");         // Menu principal
@@ -160,9 +156,15 @@ int main(void) {
             Partie();
             break;
         case 2 :
-            Aide();
-        default :
+            printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
+            printf("\nVous devrez choisir un endroit ou tirer en choisissant une case.");
+            printf("\nExemple : vous choississez de tirer sur la case B5, vous entrerez donc : B5");
+            printf("\nUne fois que vous aurez tirer 2 a 3 cas s'offrent a vous. Soit votre tir est tomber a l'eau soit il a toucher sa cible.");
+            printf("\nSi vous avez rater votre tir le message, 'A l'eau' s'affiche. Dans le cas contraire 'Toucher' ! s'affiche.");
+            printf("\nDes que vous aurez toucher toutes les parties d'un bateau, 'Couler !' s'affiche.\n");
             break;
+        case 9 :
+            return 0;
+        }
     }
-    return 0;
 }
