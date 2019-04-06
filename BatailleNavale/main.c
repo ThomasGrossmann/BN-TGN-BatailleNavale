@@ -37,7 +37,7 @@ void coule(int x, int y) {
         if (Coule[i] == i) {
             for (int s = 0; s < 9; s++) {
                 for (int u = 0; u < 9; u++) {
-                    if (model[x][y] == 10 + i) {
+                    if (model[x][y] >= 10 + i) {
                         model[x][y] += 10;
                     }
                 }
@@ -109,23 +109,9 @@ int grille(void) {
     bottombars(SIZE);       // Ligne du bas
 }
 
-int gameover(){
-    int val;
-    for (int x = 0; x < SIZE; x++) {
-        for (int y = 0; y < SIZE; y++) {
-            val = model[x][y];
-            if(val > 1 && val < 9){
-                return (0);
-            }
-        }
-
-    }
-    printf("Victoire!!!!\n\n");
-    return (1);
-}
-
-int Partie() {
-    int Gameover = 0;
+void Partie() {
+    int liste_bat[3] = {0,0,0};
+    int gameover = 0;
     do {
         grille();
         printf("       Tirez :");
@@ -133,53 +119,108 @@ int Partie() {
         int col = tir[0] - 65;          // Variable pour définir la colonne de la grille
         int ligne = tir[1] - 49;        // Variable pour définir la ligne de la grille
         printf("\nVous avez tirer en %d %d\n", col, ligne);
+
+
+
+
+
         if (model[ligne][col] == 0) {
             model[ligne][col] = -1;
             printf("\nA l'eau !\n");
         } else if (model[ligne][col] > 0 && model[ligne][col] < 10) {
             Coule[model[ligne][col]] += 1;
             model[ligne][col] += 10;
-            printf("\nToucher !\n");
+
+            printf("\nToucher ");
+            if(model[ligne][col] == 2+10)
+            {
+                liste_bat[0]++;
+                if(liste_bat[0] == 2)
+                {
+                    printf("couler\n");
+                }
+            }
+            if(model[ligne][col] == 3+10)
+            {
+                liste_bat[1]++;
+                if(liste_bat[1] == 3)
+                {
+                    printf("couler\n");
+                }
+            }
+            if(model[ligne][col] == 4+10)
+            {
+                liste_bat[2]++;
+                if(liste_bat[2] == 3)
+                {
+                    printf("couler\n");
+                }
+            }
+            printf(" ! \n");
+            //    printf("case : %d bat2 %d   ||   bat3 %d     ||     bat %d\n",model[col][ligne],liste_bat[0],liste_bat[1],liste_bat[2]);
+
+
         } else if (model[ligne][col] > 10 || model[ligne][col] == -1) {
             printf("\nVous avez deja tirer dans cette case !\n");
         }
-        Gameover = 1;
+        /*    for (int i = 0; i < SIZE; i++) {
+                for (int u = 0; u < SIZE; u++) {
+                   // printf("%d  ",model[i][u]);
+                    if(model[i][u] != -1)
+                    {
+                        {if(model[i][u] < 10)
+                            {
+                                if(model[i][u] == model[ligne][col])
+                                {
+                                    model[i][u]+=10;
+                                }
+                            }
+
+                        }
+                    }
+
+                }//printf("\n");
+            } */
+        gameover = 1;
         for (int i = 1; i <= 4; i++) {
             if (Coule[i] != i) {
-                Gameover = 0;
+                gameover = 0;
             }
         }
-    } while (Gameover == 0);
-    return 0;
+        if (gameover == 1) {
+            printf("\n\nVOUS AVEZ GAGNER BRAVO !");
+            system("pause");
+        }
+    } while (gameover == 0);
 }
 
 int main(void) {
     int Choix;
 
-    while(1){
-    printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
-    printf("\n\nVeuillez choisir une option :\n");
-    printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");         // Menu principal
-    scanf("%d", &Choix);
+    while (1) {
+        printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
+        printf("\n\nVeuillez choisir une option :\n");
+        printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");         // Menu principal
+        scanf("%d", &Choix);
 
 
-    switch (Choix) {
-        case 1 :
-            Partie();
-            break;
-        case 2 :
-            printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
-            printf("\nVous devrez choisir un endroit ou tirer en choisissant une case.");
-            printf("\nExemple : vous choississez de tirer sur la case B5, vous entrerez donc : B5");
-            printf("\nUne fois que vous aurez tirer 2 a 3 cas s'offrent a vous. Soit votre tir est tomber a l'eau soit il a toucher sa cible.");
-            printf("\nSi vous avez rater votre tir le message, 'A l'eau' s'affiche. Dans le cas contraire 'Toucher' ! s'affiche.");
-            printf("\nDes que vous aurez toucher toutes les parties d'un bateau, 'Couler !' s'affiche.\n");
-            break;
-        case 9 :
-            return 0;
-        default:
-            printf("\nChoisissez un chiffre correct !\n");
-            break;
+        switch (Choix) {
+            case 1 :
+                Partie();
+                break;
+            case 2 :
+                printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
+                printf("\nVous devrez choisir un endroit ou tirer en choisissant une case.");
+                printf("\nExemple : vous choississez de tirer sur la case B5, vous entrerez donc : B5");
+                printf("\nUne fois que vous aurez tirer 2 a 3 cas s'offrent a vous. Soit votre tir est tomber a l'eau soit il a toucher sa cible.");
+                printf("\nSi vous avez rater votre tir le message, 'A l'eau' s'affiche. Dans le cas contraire 'Toucher' ! s'affiche.");
+                printf("\nDes que vous aurez toucher toutes les parties d'un bateau, 'Couler !' s'affiche.\n");
+                break;
+            case 9 :
+                return 0;
+            default:
+                printf("\nChoisissez un chiffre correct !");
+                break;
         }
     }
 }
