@@ -30,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1787">
-              <caret line="189" column="5" lean-forward="true" selection-start-line="189" selection-start-column="5" selection-end-line="189" selection-end-column="5" />
+            <state relative-caret-position="827">
+              <caret line="189" column="5" selection-start-line="189" selection-start-column="5" selection-end-line="189" selection-end-column="5" />
               <folding>
                 <element signature="e#81#99#0" expanded="true" />
               </folding>
@@ -58,9 +58,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
+    <option name="x" value="949" />
     <option name="width" value="975" />
-    <option name="height" value="1050" />
+    <option name="height" value="1051" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -154,11 +154,12 @@
       <workItem from="1554469470106" duration="3308000" />
       <workItem from="1554554602274" duration="321000" />
       <workItem from="1554626550508" duration="3452000" />
+      <workItem from="1554631658279" duration="4000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63276000" />
+    <option name="totallyTimeSpent" value="63280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1904" height="1038" extended-state="6" />
@@ -195,8 +196,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1787">
-          <caret line="189" column="5" lean-forward="true" selection-start-line="189" selection-start-column="5" selection-end-line="189" selection-end-column="5" />
+        <state relative-caret-position="827">
+          <caret line="189" column="5" selection-start-line="189" selection-start-column="5" selection-end-line="189" selection-end-column="5" />
           <folding>
             <element signature="e#81#99#0" expanded="true" />
           </folding>
