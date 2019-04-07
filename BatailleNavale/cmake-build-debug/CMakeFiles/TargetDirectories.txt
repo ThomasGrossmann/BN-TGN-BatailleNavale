@@ -1,3 +1,3 @@
-C:/Users/Thomas.GROSSMANN/Documents/GitHub/Bataille-Navale/BatailleNavale/cmake-build-debug/CMakeFiles/Bataille_Navale.dir
-C:/Users/Thomas.GROSSMANN/Documents/GitHub/Bataille-Navale/BatailleNavale/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Thomas.GROSSMANN/Documents/GitHub/Bataille-Navale/BatailleNavale/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/thoma/Documents/GitHub/BN-TGN-BatailleNavale/BatailleNavale/cmake-build-debug/CMakeFiles/Bataille_Navale.dir
+C:/Users/thoma/Documents/GitHub/BN-TGN-BatailleNavale/BatailleNavale/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/thoma/Documents/GitHub/BN-TGN-BatailleNavale/BatailleNavale/cmake-build-debug/CMakeFiles/rebuild_cache.dir
