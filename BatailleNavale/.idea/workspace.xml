@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="Bataille_Navale" targetName="Bataille_Navale" />
     </generated>
@@ -20,6 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+<<<<<<< HEAD
   <component name="FUSProjectUsageTrigger">
     <session id="-1506851132">
       <usages-collector id="statistics.lifecycle.project">
@@ -72,6 +73,8 @@
       </usages-collector>
     </session>
   </component>
+=======
+>>>>>>> 6fc4e2312b46db40259cea3c8171de031f7b15e3
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -82,8 +85,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="411">
               <caret line="132" column="88" selection-start-line="132" selection-start-column="88" selection-end-line="132" selection-end-column="88" />
+=======
+            <state relative-caret-position="827">
+              <caret line="189" column="5" selection-start-line="189" selection-start-column="5" selection-end-line="189" selection-end-column="5" />
+              <folding>
+                <element signature="e#81#99#0" expanded="true" />
+              </folding>
+>>>>>>> 6fc4e2312b46db40259cea3c8171de031f7b15e3
             </state>
           </provider>
         </entry>
@@ -106,30 +117,42 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="949" />
+    <option name="width" value="975" />
+    <option name="height" value="1051" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Bataille_Navale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BatailleNavale" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Bataille_Navale" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BatailleNavale" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/main.c" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -143,7 +166,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Bataille_Navale">
+  <component name="RunManager" selected="Application.Build All">
     <configuration name="Bataille_Navale" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Bataille_Navale" TARGET_NAME="Bataille_Navale" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Bataille_Navale" RUN_TARGET_NAME="Bataille_Navale">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -189,18 +212,27 @@
       <workItem from="1554378157145" duration="8339000" />
       <workItem from="1554444185717" duration="3499000" />
       <workItem from="1554469470106" duration="3308000" />
+<<<<<<< HEAD
       <workItem from="1554715795629" duration="58000" />
+=======
+      <workItem from="1554554602274" duration="321000" />
+      <workItem from="1554626550508" duration="3452000" />
+      <workItem from="1554631658279" duration="4000" />
+>>>>>>> 6fc4e2312b46db40259cea3c8171de031f7b15e3
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="59561000" />
+=======
+    <option name="totallyTimeSpent" value="63280000" />
+>>>>>>> 6fc4e2312b46db40259cea3c8171de031f7b15e3
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1904" height="1038" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.26586434" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26814735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -212,10 +244,10 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3296582" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32968238" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3286334" />
-      <window_info anchor="bottom" id="CMake" order="12" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32855567" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.3296582" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -225,9 +257,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/misc.xml" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
@@ -235,8 +264,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="411">
           <caret line="132" column="88" selection-start-line="132" selection-start-column="88" selection-end-line="132" selection-end-column="88" />
+=======
+        <state relative-caret-position="827">
+          <caret line="189" column="5" selection-start-line="189" selection-start-column="5" selection-end-line="189" selection-end-column="5" />
+          <folding>
+            <element signature="e#81#99#0" expanded="true" />
+          </folding>
+>>>>>>> 6fc4e2312b46db40259cea3c8171de031f7b15e3
         </state>
       </provider>
     </entry>

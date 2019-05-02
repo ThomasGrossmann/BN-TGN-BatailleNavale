@@ -1,6 +1,6 @@
 // Programme : BatailleNavale
 // Auteur : Thomas Grossmann
-// Date : 07.03.2019
+// Date : 07.04.2019
 
 #include <stdio.h>
 #include <windows.h>
@@ -30,14 +30,14 @@ int model[SIZE][SIZE] = {
 };
 
 int Coule[5];
-char tir[5];        // Variable de tir
+char tir[5];
 
-void coule(int x, int y) {
+void coule(int x, int y) {                  // Fonction pour couler les bateaux
     for (int i = 1; i <= 4; i++) {
         if (Coule[i] == i) {
             for (int s = 0; s < 9; s++) {
                 for (int u = 0; u < 9; u++) {
-                    if (model[x][y] == 10 + i) {
+                    if (model[x][y] >= 10 + i) {
                         model[x][y] += 10;
                     }
                 }
@@ -60,21 +60,21 @@ void topborder(int width) {
 }
 
 void verticalbars(int width, int row) {
-    char TabCase = 'x';
+    char Case = 'x';
     printf("%2d ", row + 1);    // Numéro de ligne
     for (int colonne = 0; colonne < width; colonne++) {
-        TabCase = ' ';
+        Case = ' ';
         coule(row, colonne);
         if (model[row][colonne] < 0) {    // À l'eau
-            TabCase = '~';
+            Case = '~';
         }
-        if (model[row][colonne] >= 10) {   // Touché
-            TabCase = 'X';
+        if (model[row][colonne] > 10) {   // Touché
+            Case = 'X';
         }
         if (model[row][colonne] > 20) {   // Coulé
-            TabCase = '/';
+            Case = '/';
         }
-        printf("%c %c ", SVSB, TabCase);     // │ + Modèle
+        printf("%c %c ", SVSB, Case);     // │ + Modèle
     }
     printf("%c", SVSB);
 }
@@ -109,77 +109,83 @@ int grille(void) {
     bottombars(SIZE);       // Ligne du bas
 }
 
-int gameover(){
-    int val;
-    for (int x = 0; x < SIZE; x++) {
-        for (int y = 0; y < SIZE; y++) {
-            val = model[x][y];
-            if(val > 1 && val < 9){
-                return (0);
-            }
-        }
-
-    }
-    printf("Victoire!!!!\n\n");
-    return (1);
-}
-
-int Partie() {
-    int Gameover = 0;
+void Partie() {
+    int liste_bat[3] = {0,0,0};         // Liste des bateaux pour pouvoir les couler
+    int gameover = 0;
     do {
+        printf("\n");
         grille();
         printf("       Tirez :");
         scanf("%s", tir);
         int col = tir[0] - 65;          // Variable pour définir la colonne de la grille
         int ligne = tir[1] - 49;        // Variable pour définir la ligne de la grille
         printf("\nVous avez tirer en %d %d\n", col, ligne);
+        system("cls");
         if (model[ligne][col] == 0) {
             model[ligne][col] = -1;
             printf("\nA l'eau !\n");
         } else if (model[ligne][col] > 0 && model[ligne][col] < 10) {
             Coule[model[ligne][col]] += 1;
             model[ligne][col] += 10;
-            printf("\nToucher !\n");
-        } else if (model[ligne][col] > 10 || model[ligne][col] == -1) {
+            printf("Toucher\n");
+            if(model[ligne][col] == 12){
+                liste_bat[0]++;
+                if(liste_bat[0] == 2){                  // Couler le bateau de 2 de long
+                    printf("couler !\n");
+                    gameover++;
+                }
+            }
+            if(model[ligne][col] == 13){
+                liste_bat[1]++;
+                if(liste_bat[1] == 3){                  // Couler le bateau de 3 de long
+                    printf("couler !\n");
+                    gameover++;
+                }
+            }
+            if(model[ligne][col] == 14){
+                liste_bat[2]++;
+                if(liste_bat[2] == 4){                  // Couler le bateau de 4 de long
+                    printf("couler !\n");
+                    gameover++;
+                }
+            }
+        } else if (model[ligne][col] > 10 || model[ligne][col] == -1) {         // Si déjà tirer dans la case
             printf("\nVous avez deja tirer dans cette case !\n");
         }
-        Gameover = 1;
-        for (int i = 1; i <= 4; i++) {
-            if (Coule[i] != i) {
-                Gameover = 0;
-            }
+        if (gameover == 3) {        // Victoire
+            system("cls");
+            printf("\n\nVOUS AVEZ GAGNER BRAVO !\n");
+            system("pause");
         }
-    } while (Gameover == 0);
-    return 0;
+    } while (gameover != 3);
 }
 
 int main(void) {
     int Choix;
 
-    while(1){
-    printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
-    printf("\n\nVeuillez choisir une option :\n");
-    printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");         // Menu principal
-    scanf("%d", &Choix);
+    while (1) {
+        printf("\n---BIENVENUE DANS LA BATAILLE NAVALE---");
+        printf("\n\nVeuillez choisir une option :\n");
+        printf("\n1.Jouer\n\n2.Aide\n\n9.Quitter");         // Menu principal
+        scanf("\n%d", &Choix);
 
-
-    switch (Choix) {
-        case 1 :
-            Partie();
-            break;
-        case 2 :
-            printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
-            printf("\nVous devrez choisir un endroit ou tirer en choisissant une case.");
-            printf("\nExemple : vous choississez de tirer sur la case B5, vous entrerez donc : B5");
-            printf("\nUne fois que vous aurez tirer 2 a 3 cas s'offrent a vous. Soit votre tir est tomber a l'eau soit il a toucher sa cible.");
-            printf("\nSi vous avez rater votre tir le message, 'A l'eau' s'affiche. Dans le cas contraire 'Toucher' ! s'affiche.");
-            printf("\nDes que vous aurez toucher toutes les parties d'un bateau, 'Couler !' s'affiche.\n");
-            break;
-        case 9 :
-            return 0;
-        default:
-            printf("\nChoisissez un chiffre correct !\n");
-            break;
+        switch (Choix) {
+            case 1 :
+                Partie();
+                return 0;
+            case 2 :
+                printf("\nLes regles du jeu sont simples. Vous et votre adversaire possedez des bateaux de tailles differentes que vous devez couler pour remporter la victoire.");
+                printf("\nVous devrez choisir un endroit ou tirer en choisissant une case.");
+                printf("\nExemple : vous choississez de tirer sur la case B5, vous entrerez donc : B5");
+                printf("\nUne fois que vous aurez tirer 2 a 3 cas s'offrent a vous. Soit votre tir est tomber a l'eau soit il a toucher sa cible.");
+                printf("\nSi vous avez rater votre tir le message, 'A l'eau' s'affiche. Dans le cas contraire 'Toucher' ! s'affiche.");
+                printf("\nDes que vous aurez toucher toutes les parties d'un bateau, 'Couler !' s'affiche.\n");
+                break;
+            case 9 :
+                return 0;
+            default:
+                printf("\nChoisissez un chiffre correct !\n");
+                break;
         }
     }
 }
